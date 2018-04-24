@@ -17,11 +17,11 @@ n = 128
 model = Word2Vec(texts, size=n, window=4, min_count=1,negative=3,
                  sg=1, sample=0.001, hs=1, workers=4)
 vectors = pd.DataFrame([model[word] for word in (model.wv.vocab)])
-vectors['World'] = list[model.wv.vocab)
+vectors['Word'] = list[model.wv.vocab)
 vectors.columns = ["vec_{0}".format(i) for i in range(0,n)] + ['Word']
 
 wide_vec = pd.DataFrame()
-result = []
+result1 = []
 aa = list(df_protein['Protein_ID'])
 for i in range(len(texts)):
     result2=[]
@@ -86,7 +86,7 @@ df_predict = model.transform(df_predict)
 print(X.shape)
 print(df_predict.shape)'''
 
-X_train,X_test,y_train,y_test = train_test_split(X,ytest_size=0.25,random_state=33)
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.25,random_state=33)
 
 train = lgb.Dataset(X_train, label=y_train)
 test = lgb.Dataset(X_test, label=y_test, reference=train)
