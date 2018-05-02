@@ -95,18 +95,22 @@ params={
     'objective' : 'regression_l2',
     'metric' : 'l2',
     'min_child_weight' : 3,
-    'num_leaves' : 2**5,
+    'max_bin': 510,
+    'num_leaves' : 2**8,
+    #'num_leaves' : 2**5,
     'lambda_l2' : 10,
     'subsample' : 0.7,
     'colsample_bytree' : 0.7,
     'colsample_bylevel' : 0.7,
-    'learning_rate' : 0.05,
+    'learning_rate': 0.01,
+    #'learning_rate' : 0.05,
     'tree_method' : 'exact',
     'seed' : 2017,
     'nthread' : 12,
     'silent' : True
     }
-num_round = 3000
+num_round = 5000
+#num_round = 3000
 gbm = lgb.train(params,
                 train,
                 num_round,
